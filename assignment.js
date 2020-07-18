@@ -54,13 +54,15 @@ function brickCalculator (floorNumber){
 // tinyFriend
 
 function tinyFriend (friendNameList){
-    var tinyName = friendNameList[0];
-        nameLetter = tinyName.length;
-    for(var i=0; i>nameLetter; i++){
-        var nextTinyName =  friendNameList[i];
-        if (nextTinyName< tinyName){
-            tinyName = nextTinyName;
+    let shortLength = Infinity;
+    let shortest = "";
+    if (friendNameList.length > 0) {
+        for (let i = 0; i < friendNameList.length; i++) {
+            if (typeof friendNameList[i] === 'string' && friendNameList[i].length < shortLength) {
+                shortest = friendNameList[i];
+                shortLength = friendNameList[i].length;
+            }
         }
     }
-    return tinyName;
+    return shortest;
 }
